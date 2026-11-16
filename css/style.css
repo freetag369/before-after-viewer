@@ -223,4 +223,5 @@ h1, h3, p { margin: 0; }
 
 /* 画面タップで操作部品を隠す(お客様に見せるとき用) */
 #viewer.clean .v-top, #viewer.clean .v-strip { opacity: 0; pointer-events: none; }
-#viewer.clean .v-nav { opacity: .4; }
+/* ‹ › は見えなくするが、同じ位置をタップすれば前後へ移動できる */
+#viewer.clean .v-nav { opacity: 0; }
