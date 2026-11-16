@@ -180,16 +180,6 @@ h1, h3, p { margin: 0; }
   object-fit: cover; pointer-events: none;
 }
 .ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
-.ba-label {
-  position: absolute; bottom: 24px;
-  padding: 10px 22px; border-radius: 999px;
-  font-size: 15px; font-weight: 700; letter-spacing: .04em;
-  pointer-events: none; transition: opacity .15s, bottom .2s;
-}
-/* 下部のサムネイル帯が出ている間は、ラベルが隠れないよう上へ逃がす */
-#viewer:not(.clean) .ba-label { bottom: 116px; }
-.ba-label.b { left: 24px; background: #1d1c22; }
-.ba-label.a { right: 24px; background: var(--accent); }
 
 .v-top, .v-strip, .v-nav { transition: opacity .2s; }
 

@@ -4,19 +4,13 @@ import { el } from './ui.js';
 export function createSlider(stage, beforeUrl, afterUrl) {
   const after = el('img', { class: 'ba-img', src: afterUrl, alt: '', draggable: 'false' });
   const before = el('img', { class: 'ba-img ba-before', src: beforeUrl, alt: '', draggable: 'false' });
-  const labelB = el('span', { class: 'ba-label b' }, 'BEFORE');
-  const labelA = el('span', { class: 'ba-label a' }, 'AFTER');
-  // 境界線やつまみは表示しない(画像のどこをドラッグしても境界が動く)
-  const box = el('div', { class: 'ba' }, after, before, labelB, labelA);
+  // 境界線・つまみ・ラベルは表示しない(画像のどこをドラッグしても境界が動く)
+  const box = el('div', { class: 'ba' }, after, before);
 
   let pos = 50;
   let ratio = 0;
 
-  const apply = () => {
-    box.style.setProperty('--pos', pos + '%');
-    labelB.style.opacity = pos < 14 ? 0 : 1;
-    labelA.style.opacity = pos > 86 ? 0 : 1;
-  };
+  const apply = () => box.style.setProperty('--pos', pos + '%');
 
   // アフター画像の縦横比に合わせて、画面内に収まる最大サイズにする
   const fit = () => {
