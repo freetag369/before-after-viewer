@@ -1,16 +1,13 @@
 // ビフォーアフターのスライダー。左がビフォー、右がアフター。
 import { el } from './ui.js';
 
-const KNOB = '<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg>';
-
 export function createSlider(stage, beforeUrl, afterUrl) {
   const after = el('img', { class: 'ba-img', src: afterUrl, alt: '', draggable: 'false' });
   const before = el('img', { class: 'ba-img ba-before', src: beforeUrl, alt: '', draggable: 'false' });
-  const knob = el('div', { class: 'ba-knob' });
-  knob.innerHTML = KNOB;
   const labelB = el('span', { class: 'ba-label b' }, 'BEFORE');
   const labelA = el('span', { class: 'ba-label a' }, 'AFTER');
-  const box = el('div', { class: 'ba' }, after, before, el('div', { class: 'ba-line' }, knob), labelB, labelA);
+  // 境界線やつまみは表示しない(画像のどこをドラッグしても境界が動く)
+  const box = el('div', { class: 'ba' }, after, before, labelB, labelA);
 
   let pos = 50;
   let ratio = 0;
